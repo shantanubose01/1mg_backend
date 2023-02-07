@@ -25,5 +25,10 @@ router.get('/products', async (req,res)=>{
     }
   
 })
+router.get('/products/:id', async(req,res)=>{
+    const id = req.params.id ;
+    const data = await product.findById(id);
+    res.status(200).send(data);
+})
 
 module.exports = router ;
